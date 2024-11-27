@@ -23,10 +23,11 @@ class Config(Enum):
         "Remitter_IFSC": "string"
     }
 
-    API_ENDPOINT = "http://api.sampoornafeeds.in:4052/BCtest/ODataV4/HDFC"
+    # Edit the variables before using them
+    API_ENDPOINT = "https API Endpoint"
 
-    USERNAME = "JobQueue"
-    PASSWORD =  "India@12good"
+    USERNAME = "Username" 
+    PASSWORD =  "Passowrd" 
 
     COMPANY = "Sampoorna Feeds Pvt. Ltd"
 
@@ -42,7 +43,6 @@ class Config(Enum):
         "Document_Type" : "Reciept"
     }
     
-
 
 # {
 #     "Account_No": "098584600000041",
