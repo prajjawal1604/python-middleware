@@ -32,7 +32,11 @@ def before_request():
 
 @app.route('/add', methods=['POST'])
 def processRequest():
-    input_request_data = request.get_json()
+    input_request_data = request.get_json().get("GenericCorporateAlertRequest", [])
+    if len(input_request_data) > 0:
+        input_request_data = input_request_data[0]
+    else:
+        input_request_data = {}
     try:
         domainReferenceNo = input_request_data.get("Alert Sequence No")
         logger.info(f"Processing domainReferenceNo: {domainReferenceNo}")
