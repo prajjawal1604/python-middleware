@@ -16,7 +16,7 @@ class Config(Enum):
 
     FIELD_DATATYPE_MAPPING = {
         "Alert_Sequence_No": "string",
-        "Client_code", "string",
+        "Client_code": "string",
         "Account_No" : "string",
         "Amount": "float",
         "Posting_Date": "string",
