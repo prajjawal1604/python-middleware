@@ -36,7 +36,14 @@ def processRequest():
     if len(input_request_data) > 0:
         input_request_data = input_request_data[0]
     else:
-        input_request_data = {}
+        status_code = 403
+        errorMessage = "TechnicalReject"
+        client_response = {
+            "domainReferenceNo": domainReferenceNo,
+            "errorCode": Config.RESPONSE_MAPPING.value.get(errorMessage),
+            "errorMessage": errorMessage
+        }
+        return client_response, status_code
     try:
         domainReferenceNo = input_request_data.get("Alert Sequence No")
         logger.info(f"Processing domainReferenceNo: {domainReferenceNo}")

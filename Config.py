@@ -2,7 +2,9 @@ from enum import Enum
 class Config(Enum):
 
     FIELD_MAPPING = {
-        "Account_No": "Account number",
+        "Alert_Sequence_No" : "Alert Sequence No",
+        "Account_no": "Account number",
+        "Client_code": "Virtual Account",
         "Amount": "Amount",
         "Posting_Date": "Value Date",
         "Reference_No": "User Reference Number",
@@ -13,7 +15,9 @@ class Config(Enum):
     }
 
     FIELD_DATATYPE_MAPPING = {
-        "Account_No": "string",
+        "Alert_Sequence_No": "string",
+        "Client_code", "string",
+        "Account_no" : "string",
         "Amount": "float",
         "Posting_Date": "string",
         "Reference_No": "string",
