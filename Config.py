@@ -3,7 +3,7 @@ class Config(Enum):
 
     FIELD_MAPPING = {
         "Alert_Sequence_No" : "Alert Sequence No",
-        "Account_no": "Account number",
+        "Account_No": "Account Number",
         "Client_code": "Virtual Account",
         "Amount": "Amount",
         "Posting_Date": "Value Date",
@@ -17,7 +17,7 @@ class Config(Enum):
     FIELD_DATATYPE_MAPPING = {
         "Alert_Sequence_No": "string",
         "Client_code": "string",
-        "Account_no" : "string",
+        "Account_No" : "string",
         "Amount": "float",
         "Posting_Date": "string",
         "Reference_No": "string",
