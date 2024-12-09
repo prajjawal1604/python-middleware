@@ -2,6 +2,7 @@ from enum import Enum
 class Config(Enum):
 
     FIELD_MAPPING = {
+        "Alert_Sequence_No" : "Alert Sequence No"
         "Account_No": "Account number",
         "Amount": "Amount",
         "Posting_Date": "Value Date",
