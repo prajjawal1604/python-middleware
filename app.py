@@ -1,8 +1,9 @@
 from flask import Flask, request, render_template
-from utils import transformPayload, getCoercedPayload
+from utils import transformPayload, getCoercedPayload, validateRequest, getDomainReferenceNumber
 import requests
 from Config import Config
 import json
+from exceptions import InvalidPayloadException
 # import urllib
 import time
 from logger import Logger
@@ -32,21 +33,13 @@ def before_request():
 
 @app.route('/add', methods=['POST'])
 def processRequest():
-    input_request_data = request.get_json().get("GenericCorporateAlertRequest", [])
-    if len(input_request_data) > 0:
-        input_request_data = input_request_data[0]
-    else:
-        status_code = 403
-        errorMessage = "TechnicalReject"
-        client_response = {
-            "domainReferenceNo": domainReferenceNo,
-            "errorCode": Config.RESPONSE_MAPPING.value.get(errorMessage),
-            "errorMessage": errorMessage
-        }
-        return client_response, status_code
     try:
-        domainReferenceNo = input_request_data.get("Alert Sequence No")
-        logger.info(f"Processing domainReferenceNo: {domainReferenceNo}")
+        domainReferenceNo = getDomainReferenceNumber(request)
+        input_request_data = validateRequest(request) 
+        log_message = {
+            "message" : f"processing domainReferenceNo {domainReferenceNo}"
+        }
+        logger.info(json.dumps(log_message))
         params = {
             "company": Config.COMPANY.value
         }
@@ -60,7 +53,11 @@ def processRequest():
         transformed_request_data = transformPayload(input_request_data, field_mapping)
         coerced_request_data = getCoercedPayload(transformed_request_data, field_datatype_mapping)
         coerced_request_data.update(Config.ADDITIONAL_FIELDS.value)
-        logger.info(f"Final request payload: {coerced_request_data}")
+        log_message = {
+            "message": "final request payload",
+            "payload": coerced_request_data
+        }
+        logger.info(json.dumps(log_message))
 
         response = requests.post(
             api_endpoint,
@@ -76,6 +73,10 @@ def processRequest():
         else:
             errorMessage = "TechnicalReject"
             status_code = response.status_code
+    except InvalidPayloadException as e:
+        logger.error(f"Exception occurred: {e}")
+        errorMessage = "TechnicalReject"
+        status_code = e.error_code
     except Exception as e:
         logger.error(f"Exception occurred: {e}")
         errorMessage = "TechnicalReject"
