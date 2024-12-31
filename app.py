@@ -65,10 +65,11 @@ def processRequest():
             auth=(username, password),
             params=params
         )
-
-        if response.status_code == 201:
-            errorCode = "0"
+        if response.status_code == 200:
             errorMessage = "Success"
+            status_code = response.status_code
+        elif "Duplicate" in response.json().get("error",{}).get("message"):
+            errorMessage = "Duplicate"
             status_code = response.status_code
         else:
             errorMessage = "TechnicalReject"
