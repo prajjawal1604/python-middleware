@@ -2,36 +2,37 @@ from enum import Enum
 class Config(Enum):
 
     FIELD_MAPPING = {
-        "Alert_Sequence_No" : "Alert Sequence No",
-        "Account_no": "Account number",
-        "Client_code": "Virtual Account",
-        "Amount": "Amount",
-        "Posting_Date": "Value Date",
-        "Reference_No": "User Reference Number",
-        "Remitter_Account": "Remitter Account",
-        "Remitter_Name": "Remitter Name",
-        "Remitter_Bank": "Remitter Bank",
-        "Remitter_IFSC": "Remitter IFSC"
+        "alertSequenceNo" : "Alert Sequence No",
+        "account_No": "Account number",
+        "client_code": "Virtual Account",
+        "amount": "Amount",
+        "posting_Date": "Value Date",
+        "reference_No": "User Reference Number",
+        "remitter_Account": "Remitter Account",
+        "remitter_Name": "Remitter Name",
+        "remitter_Bank": "Remitter Bank",
+        "remitter_IFSC": "Remitter IFSC"
     }
 
     FIELD_DATATYPE_MAPPING = {
-        "Alert_Sequence_No": "string",
-        "Client_code": "string",
-        "Account_no" : "string",
-        "Amount": "float",
-        "Posting_Date": "string",
-        "Reference_No": "string",
-        "Remitter_Account": "string",
-        "Remitter_Name": "string",
-        "Remitter_Bank": "string",
-        "Remitter_IFSC": "string"
+        "alertSequenceNo": "string",
+        "client_code": "string",
+        "account_No" : "string",
+        "amount": "float",
+        "posting_Date": "string",
+        "reference_No": "string",
+        "remitter_Account": "string",
+        "remitter_Name": "string",
+        "remitter_Bank": "string",
+        "remitter_IFSC": "string"
     }
 
     # Edit the variables before using them
-    API_ENDPOINT = "API Endpoint"
+    API_ENDPOINT = "API ENDPOINT"
 
-    USERNAME = "Username" 
-    PASSWORD =  "Password" 
+    USERNAME = "USERNAME" 
+    PASSWORD =  "PASSWORD" 
+
 
     COMPANY = "Sampoorna Feeds Pvt. Ltd"
 
@@ -44,5 +45,6 @@ class Config(Enum):
     LOGS_PATH = "./"
 
     ADDITIONAL_FIELDS = {
-        "Document_Type" : "Reciept"
+        # "Document_Type" : "Reciept"
+
     }
