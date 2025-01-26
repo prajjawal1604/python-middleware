@@ -66,7 +66,7 @@ def processRequest():
             params=params
         )
         log_message = {
-            "message" : f"processing domainReferenceNo {domainReferenceNo}",
+            "message" : f"processed domainReferenceNo {domainReferenceNo}",
             "ERP Response" : response.json()
         }
         logger.info(json.dumps(log_message))
