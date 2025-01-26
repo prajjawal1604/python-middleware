@@ -65,6 +65,11 @@ def processRequest():
             auth=(username, password),
             params=params
         )
+        log_message = {
+            "message" : f"processing domainReferenceNo {domainReferenceNo}",
+            "ERP Response" : response.json()
+        }
+        logger.info(json.dumps(log_message))
         if response.status_code == 200:
             errorMessage = "Success"
             status_code = response.status_code

@@ -11,7 +11,8 @@ class Config(Enum):
         "remitter_Account": "Remitter Account",
         "remitter_Name": "Remitter Name",
         "remitter_Bank": "Remitter Bank",
-        "remitter_IFSC": "Remitter IFSC"
+        "remitter_IFSC": "Remitter IFSC",
+        "TransactionDesc" : "Transaction Description"
     }
 
     FIELD_DATATYPE_MAPPING = {
@@ -24,7 +25,8 @@ class Config(Enum):
         "remitter_Account": "string",
         "remitter_Name": "string",
         "remitter_Bank": "string",
-        "remitter_IFSC": "string"
+        "remitter_IFSC": "string",
+        "TransactionDesc" : "string"
     }
 
     # Edit the variables before using them
