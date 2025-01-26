@@ -3,7 +3,7 @@ from exceptions import InvalidPayloadException
 def transformPayload(input_payload, mapping):
     transformed_payload = dict()
     for dest_field, source_field in mapping.items():
-        if input_payload.get(source_field):
+        if source_field in input_payload.keys():
             transformed_payload[dest_field] = input_payload.get(source_field)
     return transformed_payload
 

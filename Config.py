@@ -12,7 +12,7 @@ class Config(Enum):
         "remitter_Name": "Remitter Name",
         "remitter_Bank": "Remitter Bank",
         "remitter_IFSC": "Remitter IFSC",
-        "TransactionDesc" : "Transaction Description"
+        "transactionDesc" : "Transaction Description"
     }
 
     FIELD_DATATYPE_MAPPING = {
@@ -26,7 +26,7 @@ class Config(Enum):
         "remitter_Name": "string",
         "remitter_Bank": "string",
         "remitter_IFSC": "string",
-        "TransactionDesc" : "string"
+        "transactionDesc" : "string"
     }
 
     # Edit the variables before using them
@@ -48,5 +48,4 @@ class Config(Enum):
 
     ADDITIONAL_FIELDS = {
         # "Document_Type" : "Reciept"
-
     }
